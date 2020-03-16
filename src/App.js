@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import EmployeesList from "./components/EmployeesList";
 
 function App() {
   return (
     <div className="App">
-      <h2>Welcome to React</h2>
+      <EmployeesList />
     </div>
   );
 }

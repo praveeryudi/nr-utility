@@ -4,7 +4,11 @@
   "private": true,
   "homepage": "https://praveeryudi.github.io/nr-utility",
   "dependencies": {
+    "@material-ui/core": "^4.9.0",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.1",
+    "material-table": "^1.56.1",
+    "mui-datatables": "^2.14.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.3",
