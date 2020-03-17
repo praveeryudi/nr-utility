@@ -15,7 +15,7 @@ const EmployeesList = (props) => {
     const data = props.employees;
     const columns = [
         {
-            name: "employeeId",
+            name: "id",
             label: "Id",
             options: {
                 filter: true,
