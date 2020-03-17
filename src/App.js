@@ -1,12 +1,10 @@
 import React from 'react';
 import './App.css';
-import EmployeesList from "./components/EmployeesList";
+import AppDrawer from "./containers/AppDrawer";
 
 function App() {
   return (
-    <div className="App">
-      <EmployeesList />
-    </div>
+    <AppDrawer />
   );
 }
 
