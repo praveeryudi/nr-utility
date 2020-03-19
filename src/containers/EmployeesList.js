@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchAllEmployees, fetchEmployeeJobHistory} from '../actions/employeeActions';
 import MUIDataTable from "mui-datatables";
-import CustomFooter from "../components/CustomFooter";
 
 const EmployeesList = (props) => {
 
