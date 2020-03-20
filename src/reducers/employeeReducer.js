@@ -1,5 +1,6 @@
 const initialState = {
     employees : [],
+    managers : [],
     currentEmployee : {},
     jobHistory : []
 };
@@ -10,6 +11,12 @@ const employeeReducer = (state = initialState, action) => {
             return {
                 ...state,
                 employees: action.payload
+            };
+
+        case "LIST_MANAGERS":
+            return {
+                ...state,
+                managers: action.payload
             };
 
         case "SET_CURRENT_EMPLOYEE":

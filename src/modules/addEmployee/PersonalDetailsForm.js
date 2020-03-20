@@ -1,8 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import {useDispatch} from "react-redux";
 
 const PersonalDetailsForm = () => {
+
+    const dispatch = useDispatch();
+
     return (
         <React.Fragment>
             <Grid container spacing={2}>
@@ -13,6 +17,10 @@ const PersonalDetailsForm = () => {
                         name="firstName"
                         label="First name"
                         fullWidth
+                        onChange={(event) => dispatch({
+                            type: "SET_EMPLOYEE_FIRST_NAME",
+                            payload: event.target.value
+                        })}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -22,6 +30,10 @@ const PersonalDetailsForm = () => {
                         name="lastName"
                         label="Last name"
                         fullWidth
+                        onChange={(event) => dispatch({
+                            type: "SET_EMPLOYEE_LAST_NAME",
+                            payload: event.target.value
+                        })}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -31,6 +43,10 @@ const PersonalDetailsForm = () => {
                         name="email"
                         label="Email"
                         fullWidth
+                        onChange={(event) => dispatch({
+                            type: "SET_EMPLOYEE_EMAIL",
+                            payload: event.target.value
+                        })}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -40,6 +56,10 @@ const PersonalDetailsForm = () => {
                         name="phone"
                         label="Phone"
                         fullWidth
+                        onChange={(event) => dispatch({
+                            type: "SET_EMPLOYEE_PHONE",
+                            payload: event.target.value
+                        })}
                     />
                 </Grid>
             </Grid>

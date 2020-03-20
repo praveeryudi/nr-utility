@@ -16,6 +16,22 @@ export const fetchAllEmployees = () => {
     };
 };
 
+export const fetchAllManagers = () => {
+    return async(dispatch) => {
+        await axios.get(Urls.FETCH_ALL_MANAGERS)
+            .then(async res => {
+                const managers = res.data;
+                await dispatch({
+                    type: "LIST_MANAGERS",
+                    payload: managers
+                });
+            })
+            .catch(function(error) {
+                console.error("Error in fetching manager list", error);
+            })
+    }
+};
+
 export const fetchEmployeeJobHistory = (employeeId) => {
     return async(dispatch) => {
         await axios.get(Urls.FETCH_EMPLOYEE_JOB_HISTORY, employeeId)

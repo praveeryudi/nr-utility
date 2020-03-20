@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 import {fetchAllEmployees, fetchEmployeeJobHistory} from '../actions/employeeActions';
 import MUIDataTable from "mui-datatables";
 
 const EmployeesList = (props) => {
 
-    const len = props.employees.length;
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        props.fetchEmployees();
-    }, [len]);
+        dispatch(fetchAllEmployees());
+    }, [dispatch]);
 
     const data = props.employees;
     const columns = [
@@ -67,7 +67,7 @@ const EmployeesList = (props) => {
             }
         },
         {
-            name: "jobId",
+            name: "jobId.jobId",
             label: "Job Id",
             options: {
                 filter: true,
@@ -113,6 +113,7 @@ const EmployeesList = (props) => {
         filterType: 'dropdown',
         responsive: 'scrollMaxHeight',
         rowsPerPage: 10,
+        jsonMode: true,
         selectableRows: 'none',
         fixedHeaderOptions: {
             xAxis: false,
@@ -135,7 +136,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchEmployees: () => dispatch(fetchAllEmployees()),
     fetchJobHistory: (employeeId) => dispatch(fetchEmployeeJobHistory(employeeId)),
 });
 
