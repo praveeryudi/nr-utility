@@ -12,7 +12,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PeopleIcon from '@material-ui/icons/People';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import MoneyIcon from '@material-ui/icons/Money';
 import AddNewEmployeeForm from "../modules/addEmployee/AddNewEmployeeForm";
+import NewExpenseForm from "../containers/NewExpenseForm";
 import EmployeesList from "./EmployeesList";
 
 const drawerWidth = 240;
@@ -83,6 +85,13 @@ const AppDrawer = () => {
                     </ListItem>
                 </List>
                 <Divider />
+                <List>
+                    <ListItem button key="addExpense" onClick={() => onMenuItemClick(2)}>
+                        <ListItemIcon><MoneyIcon /></ListItemIcon>
+                        <ListItemText primary="Add Expense" />
+                    </ListItem>
+                </List>
+                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
@@ -94,6 +103,11 @@ const AppDrawer = () => {
                 {
                     selectedIndex === 1 &&
                     <AddNewEmployeeForm />
+                }
+
+                {
+                    selectedIndex === 2 &&
+                    <NewExpenseForm />
                 }
             </main>
         </div>
