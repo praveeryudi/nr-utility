@@ -2,68 +2,99 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import {useDispatch} from "react-redux";
+import DateFnsUtils from "@date-io/date-fns";
+import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import NumberFormatCustom from "../util/NumberFormatCustom";
 
 const NewExpenseForm = () => {
 
     const dispatch = useDispatch();
+    const [selectedDate, setSelectedDate] = React.useState(new Date());
+    const [values, setValues] = React.useState({
+        numberformat: '1320',
+    });
+    const handleDateChange = date => {
+        setSelectedDate(date);
+        dispatch({
+            type: "SET_EMPLOYEE_HIRE_DATE",
+            payload: date
+        });
+    };
+    const handleAmountChange = name => event => {
+        setValues({
+            ...values,
+            [name]: event.target.value,
+        });
+        dispatch({
+            type: "SET_EMPLOYEE_SALARY",
+            payload: event.target.value
+        });
+    };
 
     return (
-        <React.Fragment>
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                    <TextField
+        <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <KeyboardDatePicker
                         required
-                        id="expenseTitle"
-                        name="expenseTitle"
-                        label="Title"
+                        disableToolbar
                         fullWidth
-                        onChange={(event) => dispatch({
-                            type: "SET_EMPLOYEE_FIRST_NAME",
-                            payload: event.target.value
-                        })}
+                        variant="inline"
+                        format="MM/dd/yyyy"
+                        margin="normal"
+                        id="expenseDate"
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        label="Expense Date"
+                        KeyboardButtonProps={{
+                            'aria-label': 'change date',
+                        }}
                     />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="lastName"
-                        name="lastName"
-                        label="Last name"
-                        fullWidth
-                        onChange={(event) => dispatch({
-                            type: "SET_EMPLOYEE_LAST_NAME",
-                            payload: event.target.value
-                        })}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="email"
-                        name="email"
-                        label="Email"
-                        fullWidth
-                        onChange={(event) => dispatch({
-                            type: "SET_EMPLOYEE_EMAIL",
-                            payload: event.target.value
-                        })}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="phone"
-                        name="phone"
-                        label="Phone"
-                        fullWidth
-                        onChange={(event) => dispatch({
-                            type: "SET_EMPLOYEE_PHONE",
-                            payload: event.target.value
-                        })}
-                    />
-                </Grid>
+                </MuiPickersUtilsProvider>
             </Grid>
-        </React.Fragment>
+
+            <Grid item xs={12} sm={6}>
+                <TextField
+                    required
+                    id="expenseTitle"
+                    name="expenseTitle"
+                    label="Expense Title"
+                    fullWidth
+                    onChange={(event) => dispatch({
+                        type: "SET_EMPLOYEE_FIRST_NAME",
+                        payload: event.target.value
+                    })}
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+                <TextField
+                    required
+                    id="salary"
+                    value={values.numberformat}
+                    onChange={handleAmountChange('numberformat')}
+                    InputProps={{
+                        inputComponent: NumberFormatCustom,
+                    }}
+                    label="Amount"
+                    fullWidth
+                />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+                <TextField
+                    required
+                    id="enteredBy"
+                    name="enteredBy"
+                    label="Entered By"
+                    fullWidth
+                    onChange={(event) => dispatch({
+                        type: "SET_EMPLOYEE_PHONE",
+                        payload: event.target.value
+                    })}
+                />
+            </Grid>
+        </Grid>
     );
 };
 
