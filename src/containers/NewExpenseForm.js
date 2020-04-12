@@ -20,6 +20,7 @@ const NewExpenseForm = () => {
             payload: date
         });
     };
+
     const handleAmountChange = name => event => {
         setValues({
             ...values,
@@ -61,7 +62,7 @@ const NewExpenseForm = () => {
                     label="Expense Title"
                     fullWidth
                     onChange={(event) => dispatch({
-                        type: "SET_EMPLOYEE_FIRST_NAME",
+                        type: "SET_EXPENSE_TITLE",
                         payload: event.target.value
                     })}
                 />
@@ -78,6 +79,10 @@ const NewExpenseForm = () => {
                     }}
                     label="Amount"
                     fullWidth
+                    onChange={(event) => dispatch({
+                                            type: "SET_EXPENSE_AMOUNT",
+                                            payload: event.target.value
+                                        })}
                 />
             </Grid>
 
@@ -89,7 +94,7 @@ const NewExpenseForm = () => {
                     label="Entered By"
                     fullWidth
                     onChange={(event) => dispatch({
-                        type: "SET_EMPLOYEE_PHONE",
+                        type: "SET_EXPENSE_ENTERED_BY",
                         payload: event.target.value
                     })}
                 />
