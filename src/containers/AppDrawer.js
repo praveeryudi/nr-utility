@@ -13,9 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PeopleIcon from '@material-ui/icons/People';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import MoneyIcon from '@material-ui/icons/Money';
+import DnsIcon from '@material-ui/icons/Dns';
 import AddNewEmployeeForm from "../modules/addEmployee/AddNewEmployeeForm";
-import NewExpenseForm from "../containers/NewExpenseForm";
+//import NewExpenseForm from "../containers/NewExpenseForm";
 import EmployeesList from "./EmployeesList";
+import FlatLookup from './FlatLookup';
 
 const drawerWidth = 240;
 
@@ -87,8 +89,8 @@ const AppDrawer = () => {
                 <Divider />
                 <List>
                     <ListItem button key="addExpense" onClick={() => onMenuItemClick(2)}>
-                        <ListItemIcon><MoneyIcon /></ListItemIcon>
-                        <ListItemText primary="Add Expense" />
+                        <ListItemIcon><DnsIcon /></ListItemIcon>
+                        <ListItemText primary="Flat Lookup" />
                     </ListItem>
                 </List>
                 <Divider />
@@ -107,7 +109,7 @@ const AppDrawer = () => {
 
                 {
                     selectedIndex === 2 &&
-                    <NewExpenseForm />
+                    <FlatLookup />
                 }
             </main>
         </div>

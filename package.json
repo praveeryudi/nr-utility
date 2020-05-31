@@ -5,21 +5,21 @@
   "homepage": "https://praveeryudi.github.io/nr-utility",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
-    "@material-ui/core": "^4.9.0",
+    "@material-ui/core": "^4.10.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
-    "axios": "^0.19.1",
-    "material-table": "^1.56.1",
-    "mui-datatables": "^2.14.0",
+    "axios": "^0.19.2",
+    "material-table": "^1.59.0",
+    "mui-datatables": "^2.15.0",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-number-format": "^4.4.1",
-    "react-redux": "^7.1.3",
-    "react-scripts": "^3.3.0",
+    "react-redux": "^7.2.0",
+    "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "redux-form": "^8.3.1",
+    "redux-form": "^8.3.6",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.2.0"
   }
 }
