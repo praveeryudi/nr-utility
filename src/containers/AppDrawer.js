@@ -18,6 +18,7 @@ import AddNewEmployeeForm from "../modules/addEmployee/AddNewEmployeeForm";
 //import NewExpenseForm from "../containers/NewExpenseForm";
 import EmployeesList from "./EmployeesList";
 import FlatLookup from './FlatLookup';
+import TxnData from './TxnData';
 
 const drawerWidth = 240;
 
@@ -94,6 +95,13 @@ const AppDrawer = () => {
                     </ListItem>
                 </List>
                 <Divider />
+                <List>
+                    <ListItem button key="getTxns" onClick={() => onMenuItemClick(3)}>
+                        <ListItemIcon><DnsIcon /></ListItemIcon>
+                        <ListItemText primary="All Transactions" />
+                    </ListItem>
+                </List>
+                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
@@ -110,6 +118,11 @@ const AppDrawer = () => {
                 {
                     selectedIndex === 2 &&
                     <FlatLookup />
+                }
+
+                {
+                    selectedIndex === 3 &&
+                        <TxnData/>
                 }
             </main>
         </div>

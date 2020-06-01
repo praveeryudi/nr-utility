@@ -1,5 +1,6 @@
 const initialState = {
-    lookup : []
+    lookup : [],
+    txnData : []
 };
 
 const maintenanceReducer = (state = initialState, action) => {
@@ -8,6 +9,18 @@ const maintenanceReducer = (state = initialState, action) => {
             return {
                 ...state,
                 lookup: action.payload
+            };
+
+        case "GET_ALL_TRANSACTIONS":
+            return {
+                ...state,
+                txnData: action.payload
+            };
+
+        case "UPDATE_TRANSACTIONS":
+            return {
+                ...state,
+                txnData: action.payload
             };
 
         default:
