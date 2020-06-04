@@ -10,15 +10,14 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import PeopleIcon from '@material-ui/icons/People';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import MoneyIcon from '@material-ui/icons/Money';
+import ReceiptIcon from '@material-ui/icons/Receipt';
 import DnsIcon from '@material-ui/icons/Dns';
-import AddNewEmployeeForm from "../modules/addEmployee/AddNewEmployeeForm";
-//import NewExpenseForm from "../containers/NewExpenseForm";
-import EmployeesList from "./EmployeesList";
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import FlatLookup from './FlatLookup';
 import TxnData from './TxnData';
+import NewTransactionForm from "./NewTransactionForm";
+import PendingMaintenance from "../components/PendingMaintenance";
 
 const drawerWidth = 240;
 
@@ -60,7 +59,7 @@ const AppDrawer = () => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        elite HR System
+                        Sriven Maintenance Ledger
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -75,30 +74,30 @@ const AppDrawer = () => {
                 <div className={classes.toolbar} />
                 <Divider component="div" />
                 <List>
-                    <ListItem button key="allEmployees" onClick={() => onMenuItemClick(0)}>
-                        <ListItemIcon><PeopleIcon /></ListItemIcon>
-                        <ListItemText primary="All Employees" />
-                    </ListItem>
-                </List>
-                <Divider />
-                <List>
-                    <ListItem button key="addEmployee" onClick={() => onMenuItemClick(1)}>
-                        <ListItemIcon><PersonAddIcon /></ListItemIcon>
-                        <ListItemText primary="Add Employee" />
-                    </ListItem>
-                </List>
-                <Divider />
-                <List>
-                    <ListItem button key="addExpense" onClick={() => onMenuItemClick(2)}>
+                    <ListItem button key="flatLookup" onClick={() => onMenuItemClick(0)}>
                         <ListItemIcon><DnsIcon /></ListItemIcon>
                         <ListItemText primary="Flat Lookup" />
                     </ListItem>
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button key="getTxns" onClick={() => onMenuItemClick(3)}>
-                        <ListItemIcon><DnsIcon /></ListItemIcon>
+                    <ListItem button key="getAllTxns" onClick={() => onMenuItemClick(1)}>
+                        <ListItemIcon><ReceiptIcon /></ListItemIcon>
                         <ListItemText primary="All Transactions" />
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    <ListItem button key="addMaintenance" onClick={() => onMenuItemClick(2)}>
+                        <ListItemIcon><AddBoxIcon /></ListItemIcon>
+                        <ListItemText primary="Add Maintenance" />
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    <ListItem button key="pendingTxns" onClick={() => onMenuItemClick(3)}>
+                        <ListItemIcon><PriorityHighIcon /></ListItemIcon>
+                        <ListItemText primary="Pending Maintenance" />
                     </ListItem>
                 </List>
                 <Divider />
@@ -107,22 +106,22 @@ const AppDrawer = () => {
                 <div className={classes.toolbar} />
                 {
                     selectedIndex === 0 &&
-                    <EmployeesList />
-                }
-
-                {
-                    selectedIndex === 1 &&
-                    <AddNewEmployeeForm />
-                }
-
-                {
-                    selectedIndex === 2 &&
                     <FlatLookup />
                 }
 
                 {
+                    selectedIndex === 1 &&
+                    <TxnData/>
+                }
+
+                {
+                    selectedIndex === 2 &&
+                    <NewTransactionForm />
+                }
+
+                {
                     selectedIndex === 3 &&
-                        <TxnData/>
+                    <PendingMaintenance />
                 }
             </main>
         </div>

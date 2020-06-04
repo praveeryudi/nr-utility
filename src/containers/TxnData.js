@@ -24,38 +24,8 @@ class TxnData extends Component {
             <MuiThemeProvider>
                 <div className="App">
                     <TransactionsTable
-                        handleRemove={this.handleRemove}
+                        //handleRemove={this.handleRemove}
                         data={this.props.transactions}
-                        header={[
-                            {
-                                name: "Txn Date",
-                                prop: "txnDate"
-                            },
-                            {
-                                name: "Flat #",
-                                prop: "flatNumber"
-                            },
-                            {
-                                name: "Month",
-                                prop: "month"
-                            },
-                            {
-                                name: "Year",
-                                prop: "year"
-                            },
-                            {
-                                name: "Actual Payment",
-                                prop: "actualPayment"
-                            },
-                            {
-                                name: "Payment Mode",
-                                prop: "paymentMode"
-                            },
-                            {
-                                name: "Balance",
-                                prop: "balance"
-                            }
-                        ]}
                     />
                 </div>
             </MuiThemeProvider>

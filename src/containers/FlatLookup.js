@@ -43,7 +43,7 @@ const FlatLookup = (props) => {
         filter: true,
         filterType: 'dropdown',
         responsive: 'scrollMaxHeight',
-        rowsPerPage: 10,
+        rowsPerPage: 15,
         jsonMode: true,
         selectableRows: 'none',
         fixedHeaderOptions: {
