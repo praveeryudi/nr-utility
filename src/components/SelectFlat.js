@@ -24,7 +24,7 @@ export default function SelectFlat(props) {
     }, [dispatch]);
 
     const classes = useStyles();
-    let[flat, setFlat] = React.useState({});
+    let[flat, setFlat] = React.useState('');
 
     const handleFlatNumberChange = (event) => {
         event.preventDefault();

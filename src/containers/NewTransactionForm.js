@@ -14,6 +14,7 @@ import SelectMonth from "../components/SelectMonth";
 import SelectYear from "../components/SelectYear";
 import {fetchIndividualFlatData, saveMaintenance} from "../actions/maintenanceActions";
 import {connect, useDispatch, useSelector} from "react-redux";
+import TxnSnackbar from "../components/TxnSnackbar";
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -56,6 +57,7 @@ const NewTransactionForm = (props) => {
     const[paymentMode, setPaymentMode] = useState('online');
     const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
     const[selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+    const {txnResponseProp} = props;
 
     const submitTxn = async () => {
         const {flatNumber} = selectedFlat;
@@ -157,7 +159,7 @@ const NewTransactionForm = (props) => {
                     </React.Fragment>
                 </Paper>
             </main>
-            {props.txnResponseProp && <h1>{props.txnResponseProp.infoMessage}</h1>}
+            {txnResponseProp && <TxnSnackbar message={txnResponseProp.infoMessage}/>}
         </React.Fragment>
     );
 };

@@ -47,6 +47,22 @@ export const saveMaintenance = (txnObj) => {
     };
 };
 
+export const saveMaintenanceInBatch = (txnArr) => {
+    return async(dispatch) => {
+
+        await axios.post(Urls.SAVE_MAINTENANCE_BATCH_DATA, txnArr)
+            .then(async res => {
+                let data = res.data;
+                await dispatch({
+                    type: "SAVE_TRANSACTION",
+                    payload: data});
+            })
+            .catch(function(error) {
+                console.error("Error in saving transaction batch", error);
+            })
+    };
+};
+
 export const fetchAllTransactions = () => {
     return async(dispatch) => {
         await axios.get(Urls.FETCH_ALL_TRANSACTIONS)

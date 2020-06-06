@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {connect, useDispatch} from 'react-redux';
 import {fetchAllFlatData} from '../actions/maintenanceActions';
 import MUIDataTable from "mui-datatables";
+import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 
 const FlatLookup = (props) => {
 
@@ -10,6 +11,17 @@ const FlatLookup = (props) => {
     useEffect(() => {
         dispatch(fetchAllFlatData());
     }, [dispatch]);
+
+    const getMuiTheme = () => createMuiTheme({
+        overrides: {
+
+            MUIDataTableHeadCell: {
+                root: {
+                    fontWeight: 'bold',
+                },
+            },
+        }
+    });
 
     const data = props.flatData;
     const columns = [
@@ -53,12 +65,14 @@ const FlatLookup = (props) => {
     };
 
     return (
+        <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
             title={"Flats List"}
             data={data}
             columns={columns}
             options={options}
         />
+        </MuiThemeProvider>
     );
 };
 

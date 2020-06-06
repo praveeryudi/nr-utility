@@ -12,4 +12,5 @@ export const DELETE_TRANSACTION = `http://${host}/maintenance/deleteTxn`;
 
 export const FETCH_INDIVIDUAL_FLAT_DATA = `http://${host}/maintenance/flat/`;
 export const SAVE_MAINTENANCE_DATA = `http://${host}/maintenance/addMaintenance`;
+export const SAVE_MAINTENANCE_BATCH_DATA = `http://${host}/maintenance/addMaintenanceBatch`;
 export const PENDING_MAINTENANCE_DATA = `http://${host}/maintenance/pending/`;

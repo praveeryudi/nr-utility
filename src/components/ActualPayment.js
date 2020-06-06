@@ -22,7 +22,7 @@ const ActualPayment = (props) => {
         <TextField
             required
             id="actualPayment"
-            defaultValue={props.fixedMaintenance}
+            defaultValue={value === 0 ? 0 : props.fixedMaintenance}
             value={value === 0 ? props.fixedMaintenance : value}
             onChange={handleAmountChange('numberformat')}
             InputProps={{

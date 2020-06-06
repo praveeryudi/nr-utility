@@ -8,7 +8,7 @@ const initialState = {
     selectedMonth : new Date().getMonth(),
     selectedYear : new Date().getFullYear(),
     txnResponse : null,
-    pendingTxns : []
+    pendingTxns : new Map()
 };
 
 const defaultState = {
@@ -21,7 +21,7 @@ const defaultState = {
     selectedMonth : new Date().getMonth(),
     selectedYear : new Date().getFullYear(),
     txnResponse : null,
-    pendingTxns : []
+    pendingTxns : new Map()
 };
 
 const maintenanceReducer = (state = initialState, action) => {

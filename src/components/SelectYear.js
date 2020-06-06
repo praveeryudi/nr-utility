@@ -25,10 +25,10 @@ export default function SelectYear(props) {
     return (
         <div>
             <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-label">Year</InputLabel>
+                <InputLabel id="year-select-label">Year</InputLabel>
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    labelId="year-select-label"
+                    id="year-select"
                     value={year}
                     onChange={handleChange}
                 >

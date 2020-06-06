@@ -1,6 +1,7 @@
 import React from 'react';
 import MUIDataTable from "mui-datatables";
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
+import CustomToolbarSelect from "./CustomToolbarSelect";
 
 /*const row = (x, i, header, handleRemove) => (
     <TableRow key={`tr-${i}`} selectable={false}>
@@ -90,9 +91,19 @@ const TransactionsTable = ({ data }) => {
         },
     ];
 
+    const deleteTransactions = () => {
+
+    };
+
     const options = {
         filter: true,
         filterType: 'checkbox',
+        customToolbarSelect: selectedRows => (
+            <CustomToolbarSelect
+                selectedRows={selectedRows}
+                onRowsDelete={deleteTransactions}
+            />
+        ),
         responsive: 'scrollMaxHeight',
         rowsPerPage: 15,
         jsonMode: true,

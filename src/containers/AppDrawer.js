@@ -13,11 +13,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import DnsIcon from '@material-ui/icons/Dns';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import FlatLookup from './FlatLookup';
 import TxnData from './TxnData';
 import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
+import AddMultipleTxn from "../components/AddMultipleTxn";
 
 const drawerWidth = 240;
 
@@ -95,7 +97,14 @@ const AppDrawer = () => {
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button key="pendingTxns" onClick={() => onMenuItemClick(3)}>
+                    <ListItem button key="addMultipleMaintenance" onClick={() => onMenuItemClick(3)}>
+                        <ListItemIcon><GroupAddIcon /></ListItemIcon>
+                        <ListItemText primary="Batch Add" />
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    <ListItem button key="pendingTxns" onClick={() => onMenuItemClick(4)}>
                         <ListItemIcon><PriorityHighIcon /></ListItemIcon>
                         <ListItemText primary="Pending Maintenance" />
                     </ListItem>
@@ -121,6 +130,11 @@ const AppDrawer = () => {
 
                 {
                     selectedIndex === 3 &&
+                    <AddMultipleTxn />
+                }
+
+                {
+                    selectedIndex === 4 &&
                     <PendingMaintenance />
                 }
             </main>
