@@ -1,5 +1,5 @@
-//const host = "praveeryudi-org.cfapps.io";
-const host = "localhost:1010";
+const host = "praveeryudi-org.cfapps.io";
+//const host = "localhost:1010";
 
 export const FETCH_ALL_EMPLOYEES = `https://${host}/employees/all`;
 export const FETCH_ALL_JOBS = `https://${host}/jobs/all`;
