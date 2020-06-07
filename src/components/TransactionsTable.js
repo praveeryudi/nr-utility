@@ -14,7 +14,7 @@ import CustomToolbarSelect from "./CustomToolbarSelect";
     </TableRow>
 );*/
 
-const TransactionsTable = ({ data }) => {
+const TransactionsTable = ({ data, txnIdsToDelete }) => {
 
     const getMuiTheme = () => createMuiTheme({
         overrides: {
@@ -91,19 +91,23 @@ const TransactionsTable = ({ data }) => {
         },
     ];
 
-    const deleteTransactions = () => {
-
+    const onRowDelete = (rowsDeleted) => {
+        //console.log(rowsDeleted.data);
+        let newData = [];
+        for(let i = 0; i < rowsDeleted.data.length; i++){
+            let idx = rowsDeleted.data[i];
+            let transactionId = data[idx.dataIndex].txnId;
+            //console.log("Data Ob", transactionId);
+            newData.push(transactionId);
+        }
+        //console.log("New Data :: ", newData);
+        txnIdsToDelete(newData);
     };
 
     const options = {
         filter: true,
         filterType: 'checkbox',
-        customToolbarSelect: selectedRows => (
-            <CustomToolbarSelect
-                selectedRows={selectedRows}
-                onRowsDelete={deleteTransactions}
-            />
-        ),
+        onRowsDelete: (rowsDeleted) => onRowDelete(rowsDeleted),
         responsive: 'scrollMaxHeight',
         rowsPerPage: 15,
         jsonMode: true,

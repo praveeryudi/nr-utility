@@ -86,6 +86,12 @@ const maintenanceReducer = (state = initialState, action) => {
                 txnData: action.payload
             };
 
+        case "DELETE_TRANSACTIONS":
+            return {
+                ...state,
+                txnResponse: action.payload
+            };
+
         case "PENDING_TRANSACTIONS":
             return {
                 ...state,

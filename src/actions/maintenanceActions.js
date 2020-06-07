@@ -78,18 +78,22 @@ export const fetchAllTransactions = () => {
     };
 };
 
-export const removeTransaction = (txnArr, txnObj) => {
+export const removeTransaction = (txnIds) => {
     return async(dispatch) => {
-        await axios.delete(Urls.DELETE_TRANSACTION, txnObj)
-            .then(async() => {
-                const txnIndex = txnArr.findIndex(txn => txn.txnId === txnObj.txnId);
+        await axios.delete(Urls.DELETE_TRANSACTION, { data: txnIds })
+            .then(async res => {
+                /*const txnIndex = txnArr.findIndex(txn => txn.txnId === txnObj.txnId);
                 const updatedTxns = [
                     ...txnArr.slice(0, txnIndex - 1),
                     ...txnArr.slice(txnIndex + 1),
                 ];
                 await dispatch({
                     type: "UPDATE_TRANSACTIONS",
-                    payload: updatedTxns});
+                    payload: updatedTxns});*/
+                const data = res.data;
+                await dispatch({
+                    type: "DELETE_TRANSACTIONS",
+                    payload: data});
             })
             .catch(function(error) {
                 console.error("Error in deleting transaction", error);

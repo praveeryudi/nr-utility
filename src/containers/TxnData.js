@@ -3,16 +3,15 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TransactionsTable from ".././components/TransactionsTable";
 import {connect} from 'react-redux';
 import {fetchAllTransactions, removeTransaction} from '../actions/maintenanceActions';
+import {ShowDeleteDialog} from "../util/DialogUtils";
 //import injectTapEventPlugin from "react-tap-event-plugin";
 
 //injectTapEventPlugin();
 
 class TxnData extends Component {
 
-    handleRemove = i => {
-        console.log("I = ", i, JSON.stringify(this.props.transactions[i]));
-        this.props.removeTxn(this.props.transactions, this.props.transactions[i]);
-        //this.props.transactions.filter((row, j) => j !== i);
+    handleRemove = ids => {
+        this.props.removeTxn(ids);
     };
 
     componentDidMount() {
@@ -23,9 +22,10 @@ class TxnData extends Component {
         return (
             <MuiThemeProvider>
                 <div className="App">
+                    {this.props.txnResponse && <ShowDeleteDialog message={this.props.txnResponse.infoMessage}/>}
                     <TransactionsTable
-                        //handleRemove={this.handleRemove}
                         data={this.props.transactions}
+                        txnIdsToDelete={(ids) => this.handleRemove(ids)}
                     />
                 </div>
             </MuiThemeProvider>
@@ -35,11 +35,12 @@ class TxnData extends Component {
 
 const mapStateToProps = (state) => ({
     transactions: state.maintenanceReducer.txnData,
+    txnResponse: state.maintenanceReducer.txnResponse,
 });
 
 const mapDispatchToProps = dispatch => ({
     fetchAllTransactions: () => dispatch(fetchAllTransactions()),
-    removeTxn: (txnArr, txnToRemove) => dispatch(removeTransaction(txnArr, txnToRemove)),
+    removeTxn: (txnIds) => dispatch(removeTransaction(txnIds)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TxnData);
