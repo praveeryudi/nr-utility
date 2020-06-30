@@ -15,3 +15,5 @@ export const FETCH_INDIVIDUAL_FLAT_DATA = `${protocol}://${host}/maintenance/fla
 export const SAVE_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/addMaintenance`;
 export const SAVE_MAINTENANCE_BATCH_DATA = `${protocol}://${host}/maintenance/addMaintenanceBatch`;
 export const PENDING_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/pending/`;
+
+export const FETCH_OC_FEES_ALL_ENTRIES = `${protocol}://${host}/oc-fee/all`;

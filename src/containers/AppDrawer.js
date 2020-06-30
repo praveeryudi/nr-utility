@@ -15,11 +15,13 @@ import DnsIcon from '@material-ui/icons/Dns';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
+import CollectionsIcon from '@material-ui/icons/Collections';
 import FlatLookup from './FlatLookup';
 import TxnData from './TxnData';
 import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
 import AddMultipleTxn from "../components/AddMultipleTxn";
+import OCFeesContainer from "../modules/ocFee/OCFeesContainer";
 
 const drawerWidth = 240;
 
@@ -61,7 +63,7 @@ const AppDrawer = () => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" noWrap>
-                        Sriven Maintenance Ledger
+                        Sriven Treasury
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -110,6 +112,13 @@ const AppDrawer = () => {
                     </ListItem>
                 </List>
                 <Divider />
+                <List>
+                    <ListItem button key="ocFeesAllEntries" onClick={() => onMenuItemClick(5)}>
+                        <ListItemIcon><CollectionsIcon /></ListItemIcon>
+                        <ListItemText primary="OC Fees Collection" />
+                    </ListItem>
+                </List>
+                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
@@ -136,6 +145,11 @@ const AppDrawer = () => {
                 {
                     selectedIndex === 4 &&
                     <PendingMaintenance />
+                }
+
+                {
+                    selectedIndex === 5 &&
+                    <OCFeesContainer />
                 }
             </main>
         </div>
