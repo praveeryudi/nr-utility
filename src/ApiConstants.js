@@ -1,6 +1,6 @@
-const host = "praveeryudi-org.cfapps.io";
-//const host = "localhost:1010";
-const protocol = "https";
+//const host = "praveeryudi-org.cfapps.io";
+const host = "localhost:1010";
+const protocol = "http";
 
 export const FETCH_ALL_EMPLOYEES = `https://${host}/employees/all`;
 export const FETCH_ALL_JOBS = `https://${host}/jobs/all`;
