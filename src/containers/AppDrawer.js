@@ -112,13 +112,6 @@ const AppDrawer = () => {
                     </ListItem>
                 </List>
                 <Divider />
-                <List>
-                    <ListItem button key="ocFeesAllEntries" onClick={() => onMenuItemClick(5)}>
-                        <ListItemIcon><CollectionsIcon /></ListItemIcon>
-                        <ListItemText primary="OC Fees Collection" />
-                    </ListItem>
-                </List>
-                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
@@ -145,11 +138,6 @@ const AppDrawer = () => {
                 {
                     selectedIndex === 4 &&
                     <PendingMaintenance />
-                }
-
-                {
-                    selectedIndex === 5 &&
-                    <OCFeesContainer />
                 }
             </main>
         </div>
