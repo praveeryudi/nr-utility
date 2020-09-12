@@ -21,7 +21,6 @@ import TxnData from './TxnData';
 import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
 import AddMultipleTxn from "../components/AddMultipleTxn";
-import OCFeesContainer from "../modules/ocFee/OCFeesContainer";
 
 const drawerWidth = 240;
 
