@@ -15,12 +15,11 @@ import DnsIcon from '@material-ui/icons/Dns';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
-import CollectionsIcon from '@material-ui/icons/Collections';
 import FlatLookup from './FlatLookup';
 import TxnData from './TxnData';
 import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
-import AddMultipleTxn from "../components/AddMultipleTxn";
+import GetTotal from "../components/GetTotal";
 
 const drawerWidth = 240;
 
@@ -98,9 +97,9 @@ const AppDrawer = () => {
                 </List>
                 <Divider />
                 <List>
-                    <ListItem button key="addMultipleMaintenance" onClick={() => onMenuItemClick(3)}>
+                    <ListItem button key="getTotal" onClick={() => onMenuItemClick(3)}>
                         <ListItemIcon><GroupAddIcon /></ListItemIcon>
-                        <ListItemText primary="Batch Add" />
+                        <ListItemText primary="Get Total" />
                     </ListItem>
                 </List>
                 <Divider />
@@ -131,7 +130,7 @@ const AppDrawer = () => {
 
                 {
                     selectedIndex === 3 &&
-                    <AddMultipleTxn />
+                    <GetTotal />
                 }
 
                 {

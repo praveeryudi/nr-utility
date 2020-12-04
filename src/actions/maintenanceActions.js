@@ -115,3 +115,18 @@ export const pendingMaintenanceData = (month, year) => {
             })
     };
 };
+
+export const fetchFloorTotalData = (month, year) => {
+    return async(dispatch) => {
+        await axios.get(Urls.FETCH_FLOOR_TOTAL + month + "/" + year)
+            .then(async res => {
+                const result = res.data;
+                await dispatch({
+                    type: "FLOOR_TOTAL",
+                    payload: result});
+            })
+            .catch(function(error) {
+                console.error("Error in fetching floor totals", error);
+            })
+    };
+};
