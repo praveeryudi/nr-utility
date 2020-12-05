@@ -99,7 +99,7 @@ const AppDrawer = () => {
                 <List>
                     <ListItem button key="getTotal" onClick={() => onMenuItemClick(3)}>
                         <ListItemIcon><GroupAddIcon /></ListItemIcon>
-                        <ListItemText primary="Get Total" />
+                        <ListItemText primary="Floor wise Total" />
                     </ListItem>
                 </List>
                 <Divider />
