@@ -15,11 +15,13 @@ import DnsIcon from '@material-ui/icons/Dns';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
+import HistoryOutlinedIcon from '@material-ui/icons/HistoryOutlined';
 import FlatLookup from './FlatLookup';
 import TxnData from './TxnData';
 import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
 import GetTotal from "../components/GetTotal";
+import PastMaintenance from "../components/PastMaintenance";
 
 const drawerWidth = 240;
 
@@ -110,6 +112,13 @@ const AppDrawer = () => {
                     </ListItem>
                 </List>
                 <Divider />
+                <List>
+                    <ListItem button key="getPastData" onClick={() => onMenuItemClick(5)}>
+                        <ListItemIcon><HistoryOutlinedIcon /></ListItemIcon>
+                        <ListItemText primary="Past Maintenance" />
+                    </ListItem>
+                </List>
+                <Divider />
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
@@ -136,6 +145,11 @@ const AppDrawer = () => {
                 {
                     selectedIndex === 4 &&
                     <PendingMaintenance />
+                }
+
+                {
+                    selectedIndex === 5 &&
+                    <PastMaintenance />
                 }
             </main>
         </div>

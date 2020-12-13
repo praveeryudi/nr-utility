@@ -47,19 +47,21 @@ export const saveMaintenance = (txnObj) => {
     };
 };
 
-export const saveMaintenanceInBatch = (txnArr) => {
+export const fetchPastMaintenance = (period) => {
     return async(dispatch) => {
 
-        await axios.post(Urls.SAVE_MAINTENANCE_BATCH_DATA, txnArr)
+        await axios.get(Urls.FETCH_PAST_MAINTENANCE_DATA + period)
             .then(async res => {
                 let data = res.data;
                 await dispatch({
-                    type: "SAVE_TRANSACTION",
+                    type: "GET_PAST_MAINTENANCE",
                     payload: data});
+                console.log("==== 2 =====");
             })
             .catch(function(error) {
-                console.error("Error in saving transaction batch", error);
+                console.error("Error in getting past maintenance data", error);
             })
+
     };
 };
 

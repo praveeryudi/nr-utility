@@ -9,7 +9,8 @@ const initialState = {
     selectedYear : new Date().getFullYear(),
     txnResponse : null,
     pendingTxns : new Map(),
-    floorTotal : new Map()
+    floorTotal : new Map(),
+    pastMaintenance : new Map()
 };
 
 const defaultState = {
@@ -23,7 +24,8 @@ const defaultState = {
     selectedYear : new Date().getFullYear(),
     txnResponse : null,
     pendingTxns : new Map(),
-    floorTotal : new Map()
+    floorTotal : new Map(),
+    pastMaintenance : new Map()
 };
 
 const maintenanceReducer = (state = initialState, action) => {
@@ -98,6 +100,12 @@ const maintenanceReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pendingTxns: action.payload
+            };
+
+        case "GET_PAST_MAINTENANCE":
+            return {
+                ...state,
+                pastMaintenance: action.payload
             };
 
         case "FLOOR_TOTAL":
