@@ -13,6 +13,7 @@ import CardContent from "@material-ui/core/CardContent";
 import NumberFormatCustom from ".././util/NumberFormatCustom";
 import TextField from "@material-ui/core/TextField";
 import {FETCH_PAST_MAINTENANCE_DATA} from "../ApiConstants";
+import MaintenanceChart from "../containers/MaintenanceChart";
 
 const useStyles = makeStyles(theme => ({
     layout: {
@@ -31,13 +32,9 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(2),
         [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
             marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(6),
+            marginBottom: theme.spacing(2),
             padding: theme.spacing(3),
         },
-    },
-    button: {
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
     },
     cardLayout: {
         marginTop: theme.spacing(2),
@@ -63,7 +60,7 @@ const PastMaintenance = (props) => {
     let [mapValues, setMapValues] = React.useState([]);
 
     useEffect(() => {
-        const onLoad = async() => {
+        const onLoad = async () => {
             await fetch(FETCH_PAST_MAINTENANCE_DATA + '3')
                 .then(response => response.json())
                 .then(data => {
@@ -74,7 +71,7 @@ const PastMaintenance = (props) => {
         onLoad();
     }, []);
 
-    const handleChange = async(event) => {
+    const handleChange = async (event) => {
         event.preventDefault();
         setPeriod(() => event.target.value);
         await fetch(FETCH_PAST_MAINTENANCE_DATA + event.target.value)
@@ -115,29 +112,37 @@ const PastMaintenance = (props) => {
             </React.Fragment>
 
             <div className={classes.cardLayout}>
-            {
-                mapKeys.map((index, key) =>
-                    <Card>
-                        <CardContent>
-                            <TextField
-                                className={classes.textField}
-                                //disabled
-                                id="outlined-disabled"
-                                label={mapKeys[key]}
-                                value={mapValues[key]}
-                                variant="outlined"
-                                InputProps={{
-                                    inputComponent: NumberFormatCustom,
-                                    readOnly: true
-                                }}
-                            />
-                        </CardContent>
-                    </Card>
-                )}
+                {
+                    mapKeys.map((index, key) =>
+                        <Card>
+                            <CardContent>
+                                <TextField
+                                    className={classes.textField}
+                                    id="outlined-disabled"
+                                    label={mapKeys[key]}
+                                    value={mapValues[key]}
+                                    variant="outlined"
+                                    InputProps={{
+                                        inputComponent: NumberFormatCustom,
+                                        readOnly: true
+                                    }}
+                                />
+                            </CardContent>
+                        </Card>
+                    )}
             </div>
             <Divider/>
             {/* Charts Display */}
-
+            <div>
+                <React.Fragment>
+                    <CssBaseline/>
+                    <main className={classes.layout}>
+                        <Paper className={classes.paper}>
+                            <MaintenanceChart chartLabels={[...mapKeys.slice(1)]} chartData={[...mapValues.slice(1)]}/>
+                        </Paper>
+                    </main>
+                </React.Fragment>
+            </div>
         </div>
     )
 };
