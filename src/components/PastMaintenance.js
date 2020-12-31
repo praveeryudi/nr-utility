@@ -16,6 +16,9 @@ import {FETCH_PAST_MAINTENANCE_DATA} from "../ApiConstants";
 import MaintenanceChart from "../containers/MaintenanceChart";
 
 const useStyles = makeStyles(theme => ({
+    appBar: {
+        position: 'relative',
+    },
     layout: {
         width: 'auto',
         marginLeft: theme.spacing(2),
@@ -41,6 +44,7 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(2),
         display: 'flex',
         justifyContent: 'space-evenly',
+        backgroundColor: theme.palette.background.paper
     },
     title: {
         fontSize: 14,
@@ -147,8 +151,4 @@ const PastMaintenance = (props) => {
     )
 };
 
-/*const mapStateToProps = (state) => ({
-    pastMaintenanceData: state.maintenanceReducer.pastMaintenance,
-});*/
-
-export default /*connect(mapStateToProps, null)*/(PastMaintenance);
+export default PastMaintenance;
