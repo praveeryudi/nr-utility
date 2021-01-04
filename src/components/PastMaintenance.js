@@ -93,7 +93,7 @@ const PastMaintenance = (props) => {
                 <main className={classes.layout}>
                     <Paper className={classes.paper}>
                         <Typography component="h1" variant="h5" align="center" color="secondary">
-                            Past Maintenance
+                            Maintenance History
                         </Typography>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={12}>

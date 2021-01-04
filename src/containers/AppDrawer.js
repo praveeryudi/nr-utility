@@ -115,7 +115,7 @@ const AppDrawer = () => {
                 <List>
                     <ListItem button key="getPastData" onClick={() => onMenuItemClick(5)}>
                         <ListItemIcon><HistoryOutlinedIcon /></ListItemIcon>
-                        <ListItemText primary="Past Maintenance" />
+                        <ListItemText primary="Maintenance History" />
                     </ListItem>
                 </List>
                 <Divider />
