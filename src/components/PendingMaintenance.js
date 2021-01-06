@@ -16,7 +16,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import FolderIcon from '@material-ui/icons/Folder';
 import {red} from '@material-ui/core/colors';
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -85,7 +84,7 @@ const PendingMaintenance = (props) => {
     const fetchPendingTxns = (event) => {
         event.preventDefault();
         console.log(selectedMonth, selectedYear);
-        dispatch(pendingMaintenanceData(selectedMonth + 1, selectedYear));
+        dispatch(pendingMaintenanceData(selectedMonth, selectedYear));
     };
 
     const keys = Object.keys(props.pendingTxnData);
@@ -103,7 +102,7 @@ const PendingMaintenance = (props) => {
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <SelectMonth selectedMonth={val => {
-                                    setSelectedMonth(val);
+                                    setSelectedMonth(val + 1);
                                 }}/>
                             </Grid>
                             <Grid item xs={12} sm={6}>

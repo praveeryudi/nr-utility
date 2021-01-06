@@ -11,9 +11,7 @@ export const LOAD_MAINTENANCE_MASTER_DATA = `${protocol}://${host}/maintenance/l
 export const FETCH_ALL_TRANSACTIONS = `${protocol}://${host}/maintenance/transactions/all`;
 export const DELETE_TRANSACTION = `${protocol}://${host}/maintenance/deleteTxn`;
 
-export const FETCH_INDIVIDUAL_FLAT_DATA = `${protocol}://${host}/maintenance/flat/`;
 export const SAVE_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/addMaintenance`;
-export const SAVE_MAINTENANCE_BATCH_DATA = `${protocol}://${host}/maintenance/addMaintenanceBatch`;
 export const PENDING_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/pending/`;
 export const FETCH_FLOOR_TOTAL = `${protocol}://${host}/maintenance/floorTotal/`;
 export const FETCH_PAST_MAINTENANCE_DATA = `${protocol}://${host}/bi/periodData/`;
