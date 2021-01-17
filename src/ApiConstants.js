@@ -15,3 +15,5 @@ export const SAVE_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/addMaint
 export const PENDING_MAINTENANCE_DATA = `${protocol}://${host}/maintenance/pending/`;
 export const FETCH_FLOOR_TOTAL = `${protocol}://${host}/maintenance/floorTotal/`;
 export const FETCH_PAST_MAINTENANCE_DATA = `${protocol}://${host}/bi/periodData/`;
+
+export const GET_BALANCES = `${protocol}://${host}/maintenance/getBalances`;

@@ -12,6 +12,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import DnsIcon from '@material-ui/icons/Dns';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
@@ -22,6 +23,7 @@ import NewTransactionForm from "./NewTransactionForm";
 import PendingMaintenance from "../components/PendingMaintenance";
 import GetTotal from "../components/GetTotal";
 import PastMaintenance from "../components/PastMaintenance";
+import GetBalances from "../components/GetBalances";
 
 const drawerWidth = 240;
 
@@ -30,8 +32,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
     },
     appBar: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        zIndex: theme.zIndex.drawer + 1,
     },
     drawer: {
         width: drawerWidth,
@@ -39,6 +40,9 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: drawerWidth,
+    },
+    drawerContainer: {
+        overflow: 'auto',
     },
     toolbar: theme.mixins.toolbar,
     content: {
@@ -151,7 +155,35 @@ const AppDrawer = () => {
                     selectedIndex === 5 &&
                     <PastMaintenance />
                 }
+
+                {
+                    selectedIndex === 6 &&
+                    <GetBalances />
+                }
             </main>
+
+
+
+
+            {/* Right Side Balances Drawer */}
+            <Drawer
+                className={classes.drawer}
+                variant="permanent"
+                classes={{
+                    paper: classes.drawerPaper,
+                }}
+                anchor="right"
+            >
+                <div className={classes.toolbar} />
+                <Divider component="div" />
+                <List>
+                    <ListItem button key="getBalances" onClick={() => onMenuItemClick(6)}>
+                        <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
+                        <ListItemText primary="Balances" />
+                    </ListItem>
+                </List>
+                <Divider />
+            </Drawer>
         </div>
     );
 };
